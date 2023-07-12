@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Random Quote Generator</title>
+
+    <script>
+        // Function to get the time of the day
+        function getTimeOfDay() {
+            const currentHour = new Date().getHours();
+
+            if (currentHour >= 5 && currentHour < 12) {
+                return 'morning';
+            } else if (currentHour >= 12 && currentHour < 17) {
+                return 'afternoon';
+            } else {
+                return 'evening/night';
+            }
+        }
+
+        // Function to generate a random quote
+        function generateRandomQuote() {
+            const quotes = [{
+                    quote: "<i class='fa fa-quote-left fa-2x fa-pull-left fa-border'></i> Everyday life is like programming, I guess. If you love something you can put beauty into it. <i class='fas fa-quote-right'></i>",
+                    author: "Donald Knuth"
+                }, {
+                    quote: "<i class='fa fa-quote-left fa-2x fa-pull-left fa-border'></i> The secret of living a life of excellence is merely a matter of thinking thoughts of excellence. Really, it's a matter of programming our minds with the kind of information that will set us free. <i class='fas fa-quote-right'></i>",
+                    author: "Charles R. Swindoll"
+                }, {
+                    quote: "<span class='quote-left'></span> The only way to do great work is to love what you do. <span class='quote-right'></span>",
+                    author: "Steve Jobs"
+                }, {
+                    quote: "<span class='quote-left'></span> Knowledge is power. <span class='quote-right'></span>",
+                    author: "Francis Bacon"
+                }, {
+                    quote: "<span class='quote-left'></span> Perfection is not attainable, but if we chase perfection we can catch excellence. <span class='quote-right'></span>",
+                    author: "Vince Lombardi"
+                }, {
+                    quote: "<span class='quote-left'></span> It always seems impossible until it's done. <span class='quote-right'></span>",
+                    author: "Nelson Mandela"
+                }, {
+                    quote: "<span class='quote-left'></span> The future belongs to those who believe in the beauty of their dreams. <span class='quote-right'></span>",
+                    author: "Eleanor Roosevelt"
+                }, {
+                    quote: "<span class='quote-left'></span> Success is not the key to happiness. Happiness is the key to success. If you love what you are doing, you will be successful. <span class='quote-right'></span>",
+                    author: "Albert Schweitzer"
+                }, {
+                    quote: "<span class='quote-left'></span> In the middle of difficulty lies opportunity. <span class='quote-right'></span>",
+                    author: "Albert Einstein"
+                }, {
+                    quote: "<span class='quote-left'></span> The only limit to our realization of tomorrow will be our doubts of today. <span class='quote-right'></span>",
+                    author: "Franklin D. Roosevelt"
+                }, {
+                    quote: "<span class='quote-left'></span> Success is walking from failure to failure with no loss of enthusiasm. <span class='quote-right'></span>",
+                    author: "Winston Churchill"
+                }, {
+                    quote: "<span class='quote-left'></span> You miss 100% of the shots you don't take. <span class='quote-right'></span>",
+                    author: "Wayne Gretzky"
+                }, {
+                    quote: "<span class='quote-left'></span> The best way to predict the future is to create it. <span class='quote-right'></span>",
+                    author: "Peter Drucker"
+                }, {
+                    quote: "<span class='quote-left'></span> Don't watch the clock; do what it does. Keep going. <span class='quote-right'></span>",
+                    author: "Sam Levenson"
+                }, {
+                    quote: "<span class='quote-left'></span> You are never too old to set another goal or to dream a new dream. <span class='quote-right'></span>",
+                    author: "C.S. Lewis"
+                }, {
+                    quote: "<span class='quote-left'></span> Believe you can and you're halfway there. <span class='quote-right'></span>",
+                    author: "Theodore Roosevelt"
+                }, {
+                    quote: "<span class='quote-left'></span> The harder I work, the luckier I get. <span class='quote-right'></span>",
+                    author: "Gary Player"
+                }
+
+            ];
+
+            const colours = ['#FF0000', '#00FF00', '#0000FF', '#FF00FF', '#00FFFF', '#800000', '#008000', '#000080', '#800080', '#008080', '#C0C0C0', '#808080', '#FFA500', '#FF4500', '#FFD700', '#800080', '#808000', '#FF5733', '#00CED1', '#BA55D3'];
+
+
+            const randomIndex = Math.floor(Math.random() * quotes.length);
+            const randomQuote = quotes[randomIndex];
+            const randomIndex1 = Math.floor(Math.random() * colours.length);
+            const randomColour = colours[randomIndex1];
+
+            const timeOfDay = getTimeOfDay();
+            const greeting = `Let's start our ${timeOfDay} with a new quote`;
+
+            document.getElementById('greeting').textContent = greeting;
+            document.getElementById('quote').innerHTML = randomQuote.quote;
+            document.getElementById('author').textContent = `- ${randomQuote.author}`;
+            document.getElementById('body').style.backgroundColor = randomColour;
+            document.getElementById('quote').style.color = randomColour;
+            document.getElementById('author').style.color = randomColour;
+            document.getElementById('quotebutton').style.backgroundColor = randomColour;
+        }
+    </script>
+    <style>
+        #body {
+            background-color: #b22222;
+        }
+        
+        #greeting {
+            padding-top: 100px;
+            width: 50%;
+            margin: auto;
+            text-align: center;
+            padding-top: 150px;
+            color: white;
+        }
+        
+        .project {
+            border: none;
+            border-radius: 10px;
+            width: 45%;
+            margin: auto;
+            margin-top: 10px;
+            text-align: center;
+            background-color: rgb(220 220 220);
+            box-shadow: 2px 2px 8px rgb(26, 26, 26);
+        }
+        
+        #quote {
+            align-items: center;
+            overflow-wrap: break-word;
+            padding-left: 10%;
+            padding-right: 10%;
+            padding-top: 10px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #b22222;
+        }
+        
+        #author {
+            align-items: left;
+            overflow-wrap: break-word;
+            padding-left: 70%;
+            padding-right: 10%;
+            padding-bottom: 10px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-style: italic;
+            color: #b22222;
+        }
+        
+        #quotebutton {
+            margin-top: 10px;
+            margin-bottom: 20px;
+            overflow-wrap: break-word;
+            width: 20%;
+            height: 30px;
+            cursor: pointer;
+            text-align: center;
+            font-size: 15px;
+            background-color: #b22222;
+            color: white;
+            border: none;
+            border-radius: 13px;
+            box-shadow: 2px 2px 7px rgb(101, 53, 53);
+        }
+    </style>
+</head>
+
+<body id="body">
+    <h1 id="greeting"></h1>
+    <div class="project">
+        <p id="quote" class="content"></p>
+        <p id="author" class="content"></p>
+        <button class="content" onclick="generateRandomQuote()" id="quotebutton">New Quote 😊</button>
+
+    </div>
+
+
+    <script>
+        generateRandomQuote(); // Generate initial random quote on page load
+    </script>
+</body>
+
+</html>
